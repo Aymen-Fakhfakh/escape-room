@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-//using String;
+
 
 public class score : MonoBehaviour
 {
@@ -16,52 +16,63 @@ public class score : MonoBehaviour
 
     private bool test  = true;
     
-    void Start(){
-        path = Application.dataPath + "/Data/gamedata.json"; 
+    void Start()
+    {
+        path = "/Data/gamedata.json"; 
         if (SceneManager.GetActiveScene().buildIndex == 1)
         {
             s = new Score();
-            //Debug.Log( JsonUtility.ToJson(s) );
-            File.WriteAllText(path, JsonUtility.ToJson(s) );
-        }else{
-            s = JsonUtility.FromJson<Score>(File.ReadAllText (path));
-        }
+           
+            string folderPath = Application.persistentDataPath + "/Data/";
+            string filePath = folderPath + "gamedata.json";
+        
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
+            File.WriteAllText(filePath, JsonUtility.ToJson(s));
+            }
+            else
+            {
+                
+                string jsonString = LoadData(path);
+                s = JsonUtility.FromJson<Score>(jsonString);
+            }
     }
     
     void Update ()
     {
-        /*if ( SceneManager.GetActiveScene() == SceneManager.GetSceneByName ("scene1"))
-        {
-            s = 100 ;
-            codeText.text = ""+s ;
-        }
-        if ( SceneManager.GetActiveScene() == SceneManager.GetSceneByName ("scene2") )
-        {
-            codeText.text = "" + s ;
-        }
-        if ( SceneManager.GetActiveScene() == SceneManager.GetSceneByName ("scene3") )
-        {
-            codeText.text = "" + s ;
-        }
-        if ( SceneManager.GetActiveScene() == SceneManager.GetSceneByName ("scene4") )
-        {
-            codeText.text = "" + s ;
-        }
-        */
+        
         if  (popup.activeInHierarchy == true  && test)
         {
             s.Upd() ;
-            string json = JsonUtility.ToJson(s);
-            File.WriteAllText(path, json );
+            
+            string folderPath = Application.persistentDataPath + "/Data/";
+            string filePath = folderPath + "gamedata.json";
+            
+            if (!Directory.Exists(folderPath))
+            {
+                Directory.CreateDirectory(folderPath);
+            }
+            if (!File.Exists(filePath))
+            {
+                File.Create(filePath).Close();
+            }
+            File.WriteAllText(filePath, JsonUtility.ToJson(s));
+            
             test = false;
         }
         else if (popup.activeInHierarchy == false) test = true;
         codeText.text = s.Get().ToString();
 
-        /*if (s.Score == 0)
+        if (s.val == 0)
         {
             SceneManager.LoadScene(7);
-        }*/
+        }
     }
 
     [System.Serializable]
@@ -72,5 +83,20 @@ public class score : MonoBehaviour
         public int  Get() {return val; }
     }
 
+    private string LoadData(string path)
+    {
+        string outputString = "";
+        using (StreamReader sr = new StreamReader(Application.persistentDataPath + path))
+        {
+            string line;
+            // Read and display lines from the file until the end of
+            // the file is reached.
+            while ((line = sr.ReadLine()) != null)
+            {
+                outputString += line;
+            }
+        }
+        return outputString;
+    }
 
 }

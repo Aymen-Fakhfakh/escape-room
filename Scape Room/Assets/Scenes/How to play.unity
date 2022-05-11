@@ -149,7 +149,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 26884548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4320}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224327658}
@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.35, y: 0.000015259}
-  m_SizeDelta: {x: 782.75, y: 480}
+  m_AnchoredPosition: {x: 0, y: -2.75}
+  m_SizeDelta: {x: 781.44, y: 485.51}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &26884550
 MonoBehaviour:
@@ -234,7 +234,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -40}
+  m_AnchoredPosition: {x: 0, y: -24.335}
   m_SizeDelta: {x: 535.72, y: 333.01}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &224327659
@@ -276,8 +276,9 @@ MonoBehaviour:
     que vous allez l\u2019apprendre \r\n   4- si vous trouvez les informations ,
     les lisez et essayez de bien les comprendre.\r\n   5-chercher maintenant les
     indices contenant les questions \r\n   6- si vous r\xE9pondez correctement \xE0
-    un nombre bien d\xE9fini de questions, vous pouvez passez \xE0 la chambre suivante
-    , sinon game over"
+    un questions, vous trouvez un code pour passer \xE0 la chambre suivante , sinon
+    votre score va diminuer  a 10pts .\n7- si votre score est \xE9gale a 0 , vous
+    avez perdu ."
 --- !u!222 &224327660
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -500,7 +501,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.00097656, y: 184.78}
+  m_AnchoredPosition: {x: 0, y: 173}
   m_SizeDelta: {x: 535.72, y: 85.22}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &919379127
@@ -581,7 +582,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.2699359, g: 0.33005518, b: 0.4245283, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -598,7 +599,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 5.030758
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -640,6 +641,7 @@ GameObject:
   - component: {fileID: 1511540094}
   - component: {fileID: 1511540093}
   - component: {fileID: 1511540092}
+  - component: {fileID: 1511540095}
   m_Layer: 5
   m_Name: retour
   m_TagString: Untagged
@@ -655,7 +657,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511540090}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4320}
   m_LocalScale: {x: -1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 901979128}
@@ -663,7 +665,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -353, y: -202}
+  m_AnchoredPosition: {x: -331.92, y: -199.71638}
   m_SizeDelta: {x: 53.11, y: 43.85}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511540092
@@ -760,3 +762,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511540090}
   m_CullTransparentMesh: 1
+--- !u!114 &1511540095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511540090}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d36a5fd25ffe104ba3b465f2779343c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anchorType: 0
+  anchorOffset: {x: 1.14, y: 0.87, z: 0}
